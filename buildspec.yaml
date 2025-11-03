@@ -7,13 +7,13 @@ phases:
   build:
     commands:
       - echo 'Building...'
-      - zip -r lambda_function.zip lambda_function.py
+      - zip -r lambda_function.zip src/lambda_function.py
   post_build:
     commands:
       - echo 'Build completed.'
       - aws lambda update-function-code --function-name myPlayGroundLambda --zip-file fileb://lambda_function.zip
-      - echo 'Waiting for 15 seconds before publishing version...'
-      - sleep 15
+      - echo 'Waiting for 30 seconds before publishing version...'
+      - sleep 30
       - aws lambda publish-version --function-name myPlayGroundLambda
 
 artifacts:
