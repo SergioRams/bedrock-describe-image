@@ -10,6 +10,8 @@ phases:
       - cd src
       - zip ../lambda_function.zip lambda_function.py
       - cd ..
+      - echo 'Verifying zip contents:'
+      - unzip -l lambda_function.zip
   post_build:
     commands:
       - echo 'Build completed.'
